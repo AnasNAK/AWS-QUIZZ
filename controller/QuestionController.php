@@ -111,7 +111,7 @@ if (isset($_POST['useranswer']) && isset($_POST['question'])) {
 
         if ($answerid == $questioncorrect) {
             $htmlResponse = "<div id=\"correct\" class=\"d-flex flex-column justify-content-center align-items-center\">" .
-                "<h1>CORRECT SIR <span>+20</span></h1>" .
+                "<h1>Your Answer is correct <span>+20</span></h1>" .
                 "<h1>" . $helpers[array_rand($helpers)] . "</h1>" .
                 "</div>";
 
@@ -120,10 +120,10 @@ if (isset($_POST['useranswer']) && isset($_POST['question'])) {
             $response = array('htmlResponse' => $htmlResponse, 'score' => $score);
             echo json_encode($response);
         } else {
-            $htmlResponse = "<h1>INCORRECT</h1><br>" .
-                "<h2>Question ID: " . $questionID . "<br></h2>" .
-                "<h2>CORRECT: " . $questioncorrect . "<br></h2>" .
-                "<h2>USER_ANSWER: " . $answerid . "<br></h2>" .
+            // $htmlResponse = "<h1>INCORRECT</h1><br>" .
+                // "<h2>Question ID: " . $questionID . "<br></h2>" .
+                // "<h2>CORRECT: " . $questioncorrect . "<br></h2>" .
+                // "<h2>USER_ANSWER: " . $answerid . "<br></h2>" .
                 "<h2>Response: Your answer is incorrect.<br></h2>";
             $score = $_SESSION['score'] ?? 0;
             $response = array('htmlResponse' => $htmlResponse, 'score' => $score);
